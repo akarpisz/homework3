@@ -3,18 +3,25 @@ alert("Welcome!");
 alert("We'll now begin.");
 
 //Variables Declared
+
     //Asks for a length of the new password -integer
 var length = prompt("How long should your new password be?");
+
     //confirms the user wants capital letters included
 var capLetters = confirm("Include capital letters?");
+
     //confirms whether or not the password will contain special characters - boolean
 var specChar = confirm("Include special characters? (!@#$%^&:/?<> etc.)");
+
     //confirms whether or not the password will contain numbers
-var  Nums = confirm("Include numbers?");
+var nums = confirm("Include numbers?");
     //var randNum = math.random
-var randNum;
+
+    //Creates a random number to choose a function to run (to create a capital letter, number, or symbol)
+var randNumFuncs;
+
     //Result of calculating the character, based on the random number
-var result;
+var result = [];
 
 //Arrays containing possible characters for the password
 var values = ["a","b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z","A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S","T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "!", "@", "#", "$", "%", "^", "&", "+", "=", "<", ">", "?", "/"];
@@ -42,6 +49,10 @@ function randNumS() {
     result = Math.floor(Math.random()*(74-62+1))+62;
 };
 
+function randNumFuncs() {
+    result = Math.floor(Math.random()*(3-0+1))+0;
+}
+
 var funcs = 
 [
     randNumL(),
@@ -50,13 +61,20 @@ var funcs =
     randNumS()
 ];
 
-function gen(func[w]) {
-    
+function gen(length) {
+    if (specChar && nums && capLetters) {
+        while result.length < length {
+
+
+        }
+    } else if ()
+
+
 };
 
 
 
-//if statements to determine which while loop to run
+//if statements to determine which loops will run
 
 
 
