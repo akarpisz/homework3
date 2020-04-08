@@ -13,25 +13,46 @@ var specChar = confirm("Include special characters? (!@#$%^&:/?<> etc.)");
 var  Nums = confirm("Include numbers?");
     //var randNum = math.random
 var randNum;
+    //Result of calculating the character, based on the random number
+var result;
 
 //Arrays containing possible characters for the password
-var letters = ["a","b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var capLets = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S","T", "U", "V", "W", "X", "Y", "Z"];
-var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-var chars = ["!", "@", "#", "$", "%", "^", "&", "+", "=", "<", ">", "?", "/"];
+var values = ["a","b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z","A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S","T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "!", "@", "#", "$", "%", "^", "&", "+", "=", "<", ">", "?", "/"];
+/*
+0-25 = letters
+26-51 = Capital
+52-61 = numbers
+62-74 = symbols
+*/
 //functions
     //produces random number(s)
-function randomNum() {
-
+function randNumL() {
+    result = Math.floor(Math.random()*(25-0+1))+0;
 };
 
-function generate() {
-    if (specChar && Nums) {
-        while 
-    } else if {
+function randNumC() {
+    result = Math.floor(Math.random()*(51-26+1))+26;
+};
 
-    }
-}
+function randNumN() {
+    result = Math.floor(Math.random()*(61-52+1))+52;
+};
+
+function randNumS() {
+    result = Math.floor(Math.random()*(74-62+1))+62;
+};
+
+var funcs = 
+[
+    randNumL(),
+    randNumC(),
+    randNumN(),
+    randNumS()
+];
+
+function gen(func[w]) {
+    
+};
 
 
 
