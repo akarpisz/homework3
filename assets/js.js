@@ -1,83 +1,74 @@
-//Welcome
-alert("Welcome!");
-alert("We'll now begin.");
+//Variables
+var generateBtn = document.querySelector("#generate");
+var lowerCheckBox = document.getElementById('lower');
+var upperCheckBox = document.getElementById('upper');
+var numbersCheckBox = document.getElementById('numbers');
+var charactersCheckBox = document.getElementById('characters');
+var lengthPass = document.getElementById('length').value
 
-//Variables Declared
+//new password charcters array
+var newPass = [];
 
-    //Asks for a length of the new password -integer
-var length = prompt("How long should your new password be?");
+//array for possible characters
+var using= [];
+var len;
+//var index;
 
-    //confirms the user wants capital letters included
-var capLetters = confirm("Include capital letters?");
+//arrays of values for the new password
+var lowerCLet = ["a","b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    //confirms whether or not the password will contain special characters - boolean
-var specChar = confirm("Include special characters? (!@#$%^&:/?<> etc.)");
+var upperCLet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S","T", "U", "V", "W", "X", "Y", "Z"];
 
-    //confirms whether or not the password will contain numbers
-var nums = confirm("Include numbers?");
-    //var randNum = math.random
+var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
-    //Creates a random number to choose a function to run (to create a capital letter, number, or symbol)
-var randNumFuncs;
-
-    //Result of calculating the character, based on the random number
-var result = [];
-
-//Arrays containing possible characters for the password
-var values = ["a","b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z","A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S","T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "!", "@", "#", "$", "%", "^", "&", "+", "=", "<", ">", "?", "/"];
-/*
-0-25 = letters
-26-51 = Capital
-52-61 = numbers
-62-74 = symbols
-*/
-//functions
-    //produces random number(s)
-function randNumL() {
-    result = Math.floor(Math.random()*(25-0+1))+0;
-};
-
-function randNumC() {
-    result = Math.floor(Math.random()*(51-26+1))+26;
-};
-
-function randNumN() {
-    result = Math.floor(Math.random()*(61-52+1))+52;
-};
-
-function randNumS() {
-    result = Math.floor(Math.random()*(74-62+1))+62;
-};
-
-function randNumFuncs() {
-    result = Math.floor(Math.random()*(3-0+1))+0;
-}
-
-var funcs = 
-[
-    randNumL(),
-    randNumC(),
-    randNumN(),
-    randNumS()
-];
-
-function gen(length) {
-    if (specChar && nums && capLetters) {
-        while result.length < length {
+var specChar = ["!", "@", "#", "$", "%", "^", "&", "+", "=", "<", ">", "?", "/"];
 
 
-        }
-    } else if ()
 
+//add possible characters to the "using" array
+function possibleCharacters() {
+    if (lowerCheckBox.checked) {
+         using = using.concat(lowerCLet);
+    };
 
+    if (upperCheckBox.checked) {
+        using = using.concat(upperCLet);
+    };
+
+    if (numbersCheckBox.checked) {
+        using = using.concat(numbers);
+    };
+
+    if (charactersCheckBox.checked) {
+        using = using.concat(specChar); 
+    };
+
+    len = using.length - 1
 };
 
 
+  //generate the password //Math.round
+function generatePassword() {
+    for (var i = 0; i < lengthPass; i++) { 
+        var index = Math.floor(Math.random()*(((len - 0)+1))+0);
+        var newvalue = using[index];
+        newPass.push(newvalue);
+    };
+  
+  };
 
-//if statements to determine which loops will run
+// Write password to the #password input
+function writePassword() {
+    //newPass = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = newPass.join("");
+  };
 
+// Add event listener to generate button
 
-
-
-
-
+generateBtn.addEventListener("click", function() {
+    possibleCharacters();
+    generatePassword();  
+    writePassword();
+    newPass = [];
+  });
