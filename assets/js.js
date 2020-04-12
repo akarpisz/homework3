@@ -12,7 +12,6 @@ var newPass = [];
 //array for possible characters
 var using= [];
 var len;
-//var index;
 
 //arrays of values for the new password
 var lowerCLet = ["a","b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -27,6 +26,10 @@ var specChar = ["!", "@", "#", "$", "%", "^", "&", "+", "=", "<", ">", "?", "/"]
 
 //add possible characters to the "using" array
 function possibleCharacters() {
+    if (!lowerCheckBox.checked && !upperCheckBox.checked && !numbersCheckBox.checked && !charactersCheckBox.checked) {
+      alert('You haven\'t selected characters to use in your password. You must select at least one option.');
+      return;
+    };
     if (lowerCheckBox.checked) {
          using = using.concat(lowerCLet);
     };
