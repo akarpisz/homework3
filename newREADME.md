@@ -1,9 +1,11 @@
-//Welcome to a brief description of my program
+//Welcome
 
-This application generates passwords ranging from 8 to 128 characters in length.
+https://akarpisz.github.io/homework3
+
+This application generates random passwords ranging from 8 to 128 characters in length.
 It creates an array of different characters from the users selections.
 
-A slider was used to prevent errors from the user entering invalid options.
+A slider was used to prevent errors, the user cannot enter invalid options regarding the range of the password.
 
 The program will not run without at least one of the character types being selected.
 
